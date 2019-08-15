@@ -175,3 +175,43 @@ stage ('docker build') {
         )
       }
   }
+
+    // deploy only the master branch
+    // if (env.BRANCH_NAME == 'master') {
+    //   stage ('deploy to k8s') {
+    //       // Deploy using Helm chart
+    //     container('helm') {
+    //                 // Create secret from Jenkins credentials manager
+    //       withCredentials([[$class          : 'UsernamePasswordMultiBinding', credentialsId: config.container_repo.jenkins_creds_id,
+    //                     usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+    //       pipeline.helmDeploy(
+    //         dry_run       : false,
+    //         name          : config.app.name,
+    //         namespace     : config.app.name,
+    //         chart_dir     : chart_dir,
+    //         set           : [
+    //           "imageTag": image_tags_list.get(0),
+    //           "replicas": config.app.replicas,
+    //           "cpu": config.app.cpu,
+    //           "memory": config.app.memory,
+    //           "ingress.hostname": config.app.hostname,
+    //           "imagePullSecrets.name": config.k8s_secret.name,
+    //           "imagePullSecrets.repository": config.container_repo.host,
+    //           "imagePullSecrets.username": env.USERNAME,
+    //           "imagePullSecrets.password": env.PASSWORD,
+    //           "imagePullSecrets.email": "ServicePrincipal@AzureRM",
+    //         ]
+    //       )
+          
+    //         //  Run helm tests
+    //         if (config.app.test) {
+    //           pipeline.helmTest(
+    //             name          : config.app.name
+    //           )
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
