@@ -149,7 +149,7 @@ stage ('docker build') {
   stage ('aqua security scan') {
     
     container('docker'){
-      aqua locationType: 'local', localImage: 'jdk8s/spring-music-azure:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', customFlags: '--layer-vulnerabilities'
+      aqua locationType: 'local', localImage: 'jdk8s/spring-music:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail', customFlags: '--layer-vulnerabilities'
     }
     // echo "image id ${env.IMAGE_ID}"
   }
