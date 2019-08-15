@@ -1,0 +1,36 @@
+{
+    "app": {
+      "name": "spring-music",
+      "replicas": "3",
+      "cpu": "10m",
+      "memory": "128Mi",
+      "test": true,
+      "hostname": "spring-music.k8s.az.jessicadeen.com"
+    },
+    "k8s_secret": {
+      "name": "spring-music"
+    },
+    "container_repo": {
+      "host": "jdk8s.azurecr.io",
+      "master_acct": "jdk8s",
+      "alt_acct": "jdk8s",
+      "jenkins_creds_id": "jdk8s",
+      "repo": "spring-music",
+      "dockeremail": ".",
+      "dockerfile": "./",
+      "image_scanning": false
+    },
+    "az_sub": {
+      "jenkins_creds_id": "azjdsub",
+      "appid": "349273fe-7811-49e7-b2f9-cf840325bbd4",
+      "helmReg": "jdk8s"
+    },
+    "pipeline": {
+        "enabled": true,
+        "debug": false,
+        "library": {
+          "branch": "dev"
+        }
+    }
+  }
+  
