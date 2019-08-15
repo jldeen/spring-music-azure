@@ -2,7 +2,7 @@ FROM gradle:jdk8 as builder
 USER root
 WORKDIR /home/gradle/
 COPY . /home/gradle/
-RUN	gradle clean assemble
+RUN	./gradlew clean assemble
 
 FROM openjdk:8-alpine
 WORKDIR /home/

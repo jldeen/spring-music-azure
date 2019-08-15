@@ -1,0 +1,29 @@
+# Default values for node.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  pullPolicy: IfNotPresent
+imagePullSecrets: jdk8s
+service:
+  name: node
+  type: ClusterIP
+  externalPort: 8080
+  internalPort: 8080
+resources:
+  limits:
+    cpu: 512m
+    memory: 1Gi
+  requests:
+    cpu: 512m
+    memory: 1Gi
+ingress:
+  enabled: true
+  hostname: cf-chattybot.k8s.az.jessicadeen.com
+  annotations:
+     kubernetes.io/ingress.class: nginx
+     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+     kubernetes.io/tls-acme: "true"
+  tls: true
+applicationInsights:
+  InstrumentationKey: 004d8eb9-d9af-49d0-bdda-b2d070eb1157
