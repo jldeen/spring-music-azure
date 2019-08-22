@@ -5,6 +5,7 @@ COPY . /home/gradle/
 RUN	./gradlew clean assemble
 
 FROM openjdk:8-alpine
+
 USER 1000:1000
 ENV PORT 8080
 EXPOSE 8080
